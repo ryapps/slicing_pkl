@@ -39,7 +39,7 @@ class HomeHeader extends StatelessWidget {
                 ),
               ),
             ),
-            onPressed: (){}, icon: Icon(Icons.notifications_outlined,color: Colors.white,),
+            onPressed: (){}, icon: Image.asset('assets/icon/Notification.png',width: 24,height: 24,color: Colors.white,),
             )
         ],
       ),

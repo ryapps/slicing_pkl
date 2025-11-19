@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 class HomeStatCard extends StatelessWidget {
   final String title;
   final String value;
-  final IconData icon;
+  final String icon;
   final Color iconColor;
 
   const HomeStatCard({
@@ -25,7 +25,7 @@ class HomeStatCard extends StatelessWidget {
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-           Icon(icon, size: 24, color: iconColor),
+           Image.asset('assets/icon/$icon.png',width: 24,height: 24,color: iconColor,),
               const SizedBox(width: 10),
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,

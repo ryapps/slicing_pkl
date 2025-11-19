@@ -1,12 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../bindings/navigation_binding.dart';
+import '../bindings/recent_project_binding.dart';
 import '../controllers/dashboard_controller.dart';
 import '../widgets/bottom_navigation_bar.dart';
 import 'widgets/home_header.dart';
 import 'widgets/home_stat_card.dart';
 import 'widgets/home_tab_selector.dart';
+import 'widgets/project_chart_widget.dart';
 import 'widgets/project_section.dart';
+import 'widgets/recent_project_view.dart';
 
 class DashboardPage extends GetView<DashboardController> {
   const DashboardPage({super.key});
@@ -14,6 +17,7 @@ class DashboardPage extends GetView<DashboardController> {
   @override
   Widget build(BuildContext context) {
     NavigationBinding().dependencies();
+    RecentProjectsBinding().dependencies();
     return Scaffold(
       backgroundColor: const Color(0xfff5f6fa),
       body: SingleChildScrollView(
@@ -62,25 +66,25 @@ class DashboardPage extends GetView<DashboardController> {
                   HomeStatCard(
                     title: "Total Absensi",
                     value: controller.totalAbsensi.value.toString(),
-                    icon: Icons.work,
+                    icon: 'briefcase',
                     iconColor: Colors.orange,
                   ),
                   HomeStatCard(
                     title: "Total Masuk",
                     value: controller.totalMasuk.value.toString(),
-                    icon: Icons.work,
+                    icon: 'brifecase-timer',
                     iconColor: Colors.green,
                   ),
                   HomeStatCard(
                     title: "Total Izin/Sakit",
                     value: controller.totalIzin.value.toString(),
-                    icon: Icons.people_alt,
+                    icon: 'profile-2user',
                     iconColor: Colors.purple,
                   ),
                   HomeStatCard(
                     title: "Total Alpa",
                     value: controller.totalAlpa.value.toString(),
-                    icon: Icons.flag,
+                    icon: 'flag-2',
                     iconColor: Colors.red,
                   ),
                 ],
@@ -93,6 +97,14 @@ class DashboardPage extends GetView<DashboardController> {
               padding: const EdgeInsets.symmetric(horizontal: 16),
               child: const ProjectSection(),
             ),
+
+            const SizedBox(height: 25),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 16),
+              child: ProjectChartWidget(),
+            ),
+            const SizedBox(height: 25),
+           RecentProjectsView(),
           ],
         ),
       ),

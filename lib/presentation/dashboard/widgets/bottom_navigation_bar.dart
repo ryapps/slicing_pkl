@@ -10,12 +10,12 @@ class BottomNavBar extends StatelessWidget {
   Widget build(BuildContext context) {
     final controller = Get.find<NavigationController>();
 
-    final List<IconData> icons = [
-      Icons.folder_open_outlined,
-      Icons.fact_check_outlined,
-      Icons.home_outlined,
-      Icons.event_note_outlined,
-      Icons.person_outline,
+    final List<String> icons = [
+      'assets/icon/Project.png',
+      'assets/icon/Attendance.png',
+      'assets/icon/Home.png',
+      'assets/icon/Duty.png',
+      'assets/icon/Profile.png',
     ];
 
     final List<String> labels = [
@@ -23,7 +23,7 @@ class BottomNavBar extends StatelessWidget {
       "Absensi",
       "Home",
       "Piket",
-      "Profil",
+      "Profile",
     ];
 
     return Container(
@@ -64,9 +64,10 @@ class BottomNavBar extends StatelessWidget {
 
                   const SizedBox(height: 6),
 
-                  Icon(
+                  Image.asset(
                     icons[index],
-                    size: 26,
+                    width: 26,
+                    height: 26,
                     color: isSelected ? AppColors.primary : Colors.grey,
                   ),
 

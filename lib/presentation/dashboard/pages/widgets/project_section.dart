@@ -33,10 +33,11 @@ class ProjectSection extends GetView<DashboardController> {
                   children: [
                     CircleAvatar(
                       backgroundColor: AppColors.secondary.withOpacity(0.1),
-                      child: Icon(
-                        Icons.school,
+                      child: Image.asset(
+                        'assets/icon/Container.png',
+                        width: 26,
+                        height: 26,
                         color: AppColors.secondary,
-                        size: 26,
                       ),
                     ),
                     SizedBox(width: 10),
@@ -61,10 +62,9 @@ class ProjectSection extends GetView<DashboardController> {
 
                 const Text(
                   "Progress Pengerjaan",
-                  style: TextStyle(
-                    fontSize: 13,
-                    color: Colors.black54,
-                    fontWeight: FontWeight.w600,
+                  style: const TextStyle(
+                    color: Colors.black87,
+                    fontWeight: FontWeight.bold,
                   ),
                 ),
                 const SizedBox(height: 6),
@@ -79,7 +79,30 @@ class ProjectSection extends GetView<DashboardController> {
                     const SizedBox(width: 10),
                     Text(
                       "${(controller.progress.value * 100).toStringAsFixed(0)}%",
-                      style: const TextStyle(fontWeight: FontWeight.bold, color: Colors.black54),
+                      style: const TextStyle(
+                        fontWeight: FontWeight.bold,
+                        color: Colors.black54,
+                      ),
+                    ),
+                  ],
+                ),
+                const SizedBox(height: 16),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: [
+                    ElevatedButton(
+                      onPressed: () {},
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: Colors.grey[200],
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(16),
+                        ),
+                        elevation: 0,
+                      ),
+                      child: const Text(
+                        "Lihat Detail",
+                        style: TextStyle(color: AppColors.primary),
+                      ),
                     ),
                   ],
                 ),
