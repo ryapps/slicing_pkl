@@ -1,5 +1,5 @@
 import 'package:get/get.dart';
-import '../../../data/models/ProjectItem.dart';
+import '../../../data/models/project_item.dart';
 import '../../../services/project_service.dart';
 class RecentProjectsController extends GetxController {
   final ProjectService service;

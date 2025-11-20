@@ -1,4 +1,4 @@
-import '../data/models/ProjectItem.dart';
+import '../data/models/project_item.dart';
 
 class ProjectService {
   Future<List<ProjectItem>> fetchRecentProjects() async {

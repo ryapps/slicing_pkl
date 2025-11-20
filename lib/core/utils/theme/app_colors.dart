@@ -17,7 +17,7 @@ class AppColors {
   static const Color greyDark = Color(0xFF616161);
 
   /// Background global
-  static const Color background = Color(0xFFFFFFFF);
+  static const Color background = Color(0xFFF9F9F9);
 
   /// Error color
   static const Color error = Color(0xFFE53935);

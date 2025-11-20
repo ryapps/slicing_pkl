@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../../../data/models/ProjectItem.dart';
+import '../../../../data/models/project_item.dart';
 
 class RecentProjectsSection extends StatelessWidget {
   final List<ProjectItem> projects;

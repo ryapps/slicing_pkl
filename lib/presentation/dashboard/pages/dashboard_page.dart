@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import '../bindings/navigation_binding.dart';
-import '../bindings/recent_project_binding.dart';
+import 'package:slicing_pkl/core/utils/theme/app_colors.dart';
 import '../controllers/dashboard_controller.dart';
-import '../widgets/bottom_navigation_bar.dart';
+import '../../shared/widgets/bottom_navigation_bar.dart';
 import 'widgets/home_header.dart';
 import 'widgets/home_stat_card.dart';
 import 'widgets/home_tab_selector.dart';
@@ -16,45 +15,44 @@ class DashboardPage extends GetView<DashboardController> {
 
   @override
   Widget build(BuildContext context) {
-    NavigationBinding().dependencies();
-    RecentProjectsBinding().dependencies();
     return Scaffold(
-      backgroundColor: const Color(0xfff5f6fa),
-      body: SingleChildScrollView(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Stack(
-              children: [
-                Container(height: 190, decoration: const BoxDecoration()),
-                Obx(
-                  () => Positioned(
+      backgroundColor: AppColors.background,
+      body: Obx(
+        () => SingleChildScrollView(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Stack(
+                children: [
+                  Container(height: 190, decoration: const BoxDecoration()),
+
+                  Positioned(
                     top: 0,
                     left: 0,
                     right: 0,
                     child: HomeHeader(name: controller.userName.value),
                   ),
-                ),
-                Positioned(
-                  bottom: 0,
-                  left: 0,
-                  right: 0,
-                  child: Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 24.0),
-                    child: Obx(
-                      () => HomeTabSelector(
-                        activeIndex: controller.activeTab.value,
-                        onTap: controller.changeTab,
+
+                  Positioned(
+                    bottom: 0,
+                    left: 0,
+                    right: 0,
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 24.0),
+                      child: Obx(
+                        () => HomeTabSelector(
+                          activeIndex: controller.activeTab.value,
+                          onTap: controller.changeTab,
+                        ),
                       ),
                     ),
                   ),
-                ),
-              ],
-            ),
+                ],
+              ),
 
-            const SizedBox(height: 20),
-            Obx(
-              () => GridView.count(
+              const SizedBox(height: 20),
+
+              GridView.count(
                 padding: const EdgeInsets.symmetric(horizontal: 16),
                 shrinkWrap: true,
                 physics: const NeverScrollableScrollPhysics(),
@@ -89,23 +87,23 @@ class DashboardPage extends GetView<DashboardController> {
                   ),
                 ],
               ),
-            ),
 
-            const SizedBox(height: 25),
+              const SizedBox(height: 25),
 
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 16),
-              child: const ProjectSection(),
-            ),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 16),
+                child: const ProjectSection(),
+              ),
 
-            const SizedBox(height: 25),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 16),
-              child: ProjectChartWidget(),
-            ),
-            const SizedBox(height: 25),
-           RecentProjectsView(),
-          ],
+              const SizedBox(height: 25),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 16),
+                child: ProjectChartWidget(),
+              ),
+              const SizedBox(height: 25),
+              RecentProjectsView(),
+            ],
+          ),
         ),
       ),
       bottomNavigationBar: const BottomNavBar(),
